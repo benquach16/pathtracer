@@ -1,10 +1,10 @@
 #pragma once
 
-class Tracer
-{
+class Tracer {
 public:
-    Tracer();
+  Tracer();
 
-    void render();
+  void render();
+
 private:
 };

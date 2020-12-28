@@ -8,6 +8,8 @@ project (raytracer)
 
 set(SOURCES
     ./src/main.cpp
+    ./src/rendertarget.cpp
+    ./src/mesh.cpp
     )
 
 set(DIRS

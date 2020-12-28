@@ -1,9 +1,5 @@
 #include "tracer.h"
 
-Tracer::Tracer()
-{
-}
+Tracer::Tracer() {}
 
-void Tracer::render()
-{
-}
+void Tracer::render() {}
