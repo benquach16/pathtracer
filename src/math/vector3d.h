@@ -17,14 +17,23 @@ public:
     z = rhs.z;
     return *this;
   }
+
   bool operator==(const Vector3d &rhs) {
     // do i need espilon?
     return (rhs.x == x && rhs.y == y && rhs.z == z);
   }
 
-  float magnitude() { return std::sqrt(x * x + y * y + z * z); }
+  float magnitude() const { return std::sqrt(x * x + y * y + z * z); }
 
   float x;
   float y;
   float z;
 };
+
+inline Vector3d operator/(const Vector3d &vec, float t) {
+    return Vector3d(vec.x/t, vec.y/t, vec.z/t);
+}
+
+inline Vector3d normalize(const Vector3d &vec) {
+    return vec/vec.magnitude();
+}
