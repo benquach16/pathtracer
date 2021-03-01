@@ -1,5 +1,7 @@
+#include <assert.h>
 #include "rendertarget.h"
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -21,7 +23,13 @@ RenderTarget::~RenderTarget() {
 void RenderTarget::dump(const std::string &filepath) {
   int nx = m_width;
   int ny = m_height;
-  std::cout << "P3\n" << nx << " " << ny << "\n255\n";
+  ofstream fs;
+  fs.open(filepath);
+  if(fs.good() == false)
+  {
+      assert(false);
+  }
+  fs << "P3\n" << nx << " " << ny << "\n255\n";
   for (int j = ny - 1; j >= 0; j--) {
     for (int i = 0; i < nx; i++) {
       float r = float(i) / float(nx);
@@ -30,7 +38,8 @@ void RenderTarget::dump(const std::string &filepath) {
       int ir = int(255.99 * r);
       int ig = int(255.99 * g);
       int ib = int(255.99 * b);
-      std::cout << ir << " " << ig << " " << ib << "\n";
+      fs << ir << " " << ig << " " << ib << "\n";
     }
   }
+  fs.close();
 }
