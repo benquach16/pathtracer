@@ -1,12 +1,13 @@
 #include "mesh.h"
-#include "rendertarget.h"
+#include "tracer.h"
 #include <iostream>
 
 using namespace std;
 
-int main() {
-  Mesh mesh;
-  mesh.load("assets/monkey.obj");
+int main()
+{
+    Tracer tracer;
+    tracer.render();
 
-  return 0;
+    return 0;
 }

@@ -9,6 +9,7 @@ project (raytracer)
 set(SOURCES
     ./src/main.cpp
     ./src/rendertarget.cpp
+    ./src/tracer.cpp
     ./src/mesh.cpp
     )
 

@@ -1,10 +1,15 @@
 #pragma once
 
+#include "mesh.h"
+#include "rendertarget.h"
+
 class Tracer {
 public:
-  Tracer();
+    Tracer();
 
-  void render();
+    void render();
 
 private:
+    Mesh m_mesh;
+    RenderTarget m_rendertarget;
 };
