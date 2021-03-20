@@ -7,8 +7,19 @@ Tracer::Tracer()
     m_mesh.load("assets/monkey.obj");
 }
 
+bool hitSphere(const Vector3d& center, float radius, Ray r) {
+    Vector3d oc = r.origin - center;
+    float a = dot(r.direction, r.direction);
+    float b = 2.0 * dot(oc, r.direction);
+    float c = dot(oc, oc) - radius * radius;
+    float disc = b*b - 4*a*c;
+    return (disc > 0);
+}
+
 Vector3d color(Ray r)
 {
+    if(hitSphere(Vector3d(0, 0, -1), 0.5, r))
+        return Vector3d(1, 0, 0);
     Vector3d unit = normalize(r.direction);
     float t = 0.5 * (unit.y + 1);
     return (1.0 - t) * Vector3d(1.0) + t * Vector3d(0.5, 0.7, 1.0);

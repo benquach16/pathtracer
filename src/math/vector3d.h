@@ -82,3 +82,8 @@ inline Vector3d operator/(const Vector3d& vec1, const Vector3d& vec2)
     return Vector3d(vec1.x / vec2.x, vec1.y / vec2.y, vec1.z / vec2.z);
 }
 inline Vector3d normalize(const Vector3d& vec) { return vec / vec.magnitude(); }
+
+inline float dot(const Vector3d& vec1, const Vector3d& vec2)
+{
+    return vec1.x * vec2.x + vec1.y * vec2.y + vec1.z * vec2.z;
+}
